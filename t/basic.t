@@ -169,6 +169,16 @@ subtest 'stringify string exception' => sub {
     like $error, qr/here/;
 };
 
+subtest 'stringify string exception confess' => sub {
+    my $error;
+
+    require Carp;
+
+    try { Carp::confess('here') } catch { $error = shift };
+
+    like $error, qr/here [\S]+ at \d+/;
+};
+
 subtest 'stringify object exception' => sub {
     my $error;
 

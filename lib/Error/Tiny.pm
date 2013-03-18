@@ -33,7 +33,7 @@ sub try(&;@) {
         my $orig_e = $e;
 
         if (!Scalar::Util::blessed($e)) {
-            $orig_e =~ s{ at ([\S]+) line (\d+)\.\s*$}{};
+            $orig_e =~ s{ at ([\S]+) line (\d+)\.\s*$}{}ms;
             $e = Error::Tiny::Exception->new(
                 message => $orig_e,
                 file    => $1,

@@ -50,6 +50,13 @@ sub catch {
         @tail);
 }
 
-sub to_string { "$_[0]->{message} $_[0]->{file} at $_[0]->{line}." }
+sub to_string {
+    my $self = shift;
+
+    my $message = $self->{message};
+    $message =~ s{$}{ $self->{file} at $self->{line}.}m;
+
+    $message;
+}
 
 1;
