@@ -1,0 +1,20 @@
+
+=head1 Error::Tiny
+
+    use Error::Tiny;
+
+    try {
+        dangerous();
+    }
+    catch MyCustomException with {
+        my $e = shift;
+
+        ...everything whose parent is MyCustomException...
+    }
+    catch {
+        my $e = shift;
+
+        ...everything else goes here...
+    };
+
+=cut
