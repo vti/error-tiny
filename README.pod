@@ -17,4 +17,18 @@
         ...everything else goes here...
     };
 
+=head2 Why not Try::Tiny
+
+    try {
+        dangerous();
+    }
+    catch {
+        my $e = $_;
+
+        if (blessed($e) && $e->isa('MyCustomException')) {
+        }
+        else {
+        }
+    };
+
 =cut
