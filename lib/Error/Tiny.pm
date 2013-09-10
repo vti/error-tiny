@@ -26,7 +26,6 @@ sub try(&;@) {
 
     my $wantarray = wantarray;
 
-    local $@;
     my @ret;
     eval { @ret = $wantarray ? $try->() : scalar $try->(); 1 } || do {
         my $e      = $@;

@@ -187,6 +187,21 @@ subtest 'stringify object exception' => sub {
     like $error, qr/error/;
 };
 
+subtest 'rethrow in catch' => sub {
+    my $error = exception {
+        try { CustomException->throw('error') }
+        catch CustomException with {
+            my $e = shift;
+
+            CustomException->throw($e->message);
+        }
+    };
+
+    is $error->message, 'error';
+    is $error->file, __FILE__;
+    is $error->line, __LINE__ - 6;
+};
+
 subtest 'rethrow' => sub {
     my $error = exception {
         try { CustomException->throw('error') }
