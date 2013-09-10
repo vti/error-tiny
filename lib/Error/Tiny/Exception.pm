@@ -54,7 +54,7 @@ sub to_string {
     my $self = shift;
 
     my $message = $self->{message};
-    $message =~ s{$}{ $self->{file} at $self->{line}.}m;
+    $message =~ s{$}{ at $self->{file} line $self->{line}.}m;
 
     $message;
 }

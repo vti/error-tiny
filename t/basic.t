@@ -176,7 +176,7 @@ subtest 'stringify string exception confess' => sub {
 
     try { Carp::confess('here') } catch { $error = shift };
 
-    like $error, qr/here [\S]+ at \d+/;
+    like $error, qr/here at [\S]+ line \d+/;
 };
 
 subtest 'stringify object exception' => sub {
