@@ -68,3 +68,64 @@ sub with(&;@) {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+Error::Tiny - Tiny exceptions
+
+=head1 SYNOPSIS
+
+    use Error::Tiny;
+
+    try {
+        dangerous();
+    }
+    catch MyCustomException with {
+        my $e = shift;
+
+        ...everything whose parent is MyCustomException...
+    }
+    catch {
+        my $e = shift;
+
+        ...everything else goes here...
+    };
+
+=head1 DESCRIPTION
+
+L<Error::Tiny> is a lightweight exceptions implementation.
+
+=head1 FEATURES
+
+=head2 C<Objects everywhere>
+
+You will always get an object in the catch block. No need to check if it's
+a blessed reference or anything like that. And there is no need for
+C<$SIG{__DIE__}>!
+
+=head2 C<Exception class built-in>
+
+L<Error::Tiny::Exception> is a lightweight base exception class. It is easy to
+throw an exception:
+
+    Error::Tiny::Exception->throw('error');
+
+=head1 DEVELOPMENT
+
+=head2 Repository
+
+    http://github.com/vti/error-tiny
+
+=head1 AUTHOR
+
+Viacheslav Tykhanovskyi, C<vti@cpan.org>.
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2013, Viacheslav Tykhanovskyi
+
+This program is free software, you can redistribute it and/or modify it under
+the terms of the Artistic License version 2.0.
+
+=cut

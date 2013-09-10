@@ -60,3 +60,42 @@ sub to_string {
 }
 
 1;
+__END__
+
+=head1 NAME
+
+Error::Tiny::Exception - Base exception
+
+=head1 SYNOPSIS
+
+    use Error::Tiny::Exception;
+
+    Error::Tiny::Exception->throw('my error');
+
+=head1 DESCRIPTION
+
+L<Error::Tiny::Exception> is a base exception for L<Error::Tiny>.
+
+=head1 METHODS
+
+=head2 C<throw>
+
+Throw exception.
+
+=head2 C<rethrow>
+
+Rethrow exception.
+
+=head2 C<message>
+
+Exception message.
+
+=head2 C<file>
+
+Exception file.
+
+=head2 C<line>
+
+Exception line.
+
+=cut
