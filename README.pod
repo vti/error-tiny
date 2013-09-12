@@ -6,7 +6,7 @@
     try {
         dangerous();
     }
-    catch MyCustomException with {
+    catch MyCustomException then {
         my $e = shift;
 
         ...everything whose parent is MyCustomException...

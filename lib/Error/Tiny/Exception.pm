@@ -43,10 +43,10 @@ sub rethrow {
 
 sub catch {
     my $self = shift;
-    my ($with, @tail) = @_;
+    my ($then, @tail) = @_;
 
     my $class = ref($self) ? ref($self) : $self;
-    (Error::Tiny::Catch->new(handler => $with->handler, class => $class),
+    (Error::Tiny::Catch->new(handler => $then->handler, class => $class),
         @tail);
 }
 

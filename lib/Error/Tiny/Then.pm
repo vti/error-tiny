@@ -1,4 +1,4 @@
-package Error::Tiny::With;
+package Error::Tiny::Then;
 
 use strict;
 use warnings;

@@ -5,14 +5,14 @@ use warnings;
 
 use vars qw(@ISA @EXPORT @EXPORT_OK);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 BEGIN {
     require Exporter;
     @ISA = qw(Exporter);
 }
 
-@EXPORT = @EXPORT_OK = qw(try with catch);
+@EXPORT = @EXPORT_OK = qw(try then catch);
 
 require Carp;
 $Carp::Internal{+__PACKAGE__}++;
@@ -21,7 +21,7 @@ require Scalar::Util;
 
 use Error::Tiny::Exception;
 use Error::Tiny::Catch;
-use Error::Tiny::With;
+use Error::Tiny::Then;
 
 sub try(&;@) {
     my ($try, @handlers) = @_;
@@ -63,10 +63,10 @@ sub catch(&;@) {
     Error::Tiny::Catch->new(handler => $handler, class => $class);
 }
 
-sub with(&;@) {
+sub then(&;@) {
     my ($handler, $subhandler) = @_;
 
-    (Error::Tiny::With->new(handler => $handler), $subhandler);
+    (Error::Tiny::Then->new(handler => $handler), $subhandler);
 }
 
 1;
@@ -83,7 +83,7 @@ Error::Tiny - Tiny exceptions
     try {
         dangerous();
     }
-    catch MyCustomException with {
+    catch MyCustomException then {
         my $e = shift;
 
         ...everything whose parent is MyCustomException...

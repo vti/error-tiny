@@ -16,7 +16,7 @@ subtest 'catch with class' => sub {
     try {
         die 'here';
     }
-    catch Error::Tiny::Exception with {
+    catch Error::Tiny::Exception then {
         my $e = shift;
 
         $called++;
@@ -61,7 +61,7 @@ subtest 'deep catch' => sub {
     try {
         die 'here';
     }
-    catch CustomException with {} catch {
+    catch CustomException then {} catch {
         my $e = shift;
 
         $called++;
@@ -137,7 +137,7 @@ subtest 'preserve context2' => sub {
 
 subtest 'propagate error' => sub {
     ok exception {
-        try { die 'here' } catch CustomException with {};
+        try { die 'here' } catch CustomException then {};
     };
 };
 
@@ -190,7 +190,7 @@ subtest 'stringify object exception' => sub {
 subtest 'rethrow in catch' => sub {
     my $error = exception {
         try { CustomException->throw('error') }
-        catch CustomException with {
+        catch CustomException then {
             my $e = shift;
 
             CustomException->throw($e->message);
