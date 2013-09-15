@@ -43,7 +43,7 @@ sub try(&;@) {
         }
 
         for my $handler (@handlers) {
-            if ($handler->isa('Error::Tiny::Catch')) {
+            if ($handler && $handler->isa('Error::Tiny::Catch')) {
                 if ($e->isa($handler->class)) {
                     return $handler->handler->($e);
                 }
