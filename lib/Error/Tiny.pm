@@ -113,6 +113,19 @@ throw an exception:
 
     Error::Tiny::Exception->throw('error');
 
+=head1 WARNING
+
+If you start getting strange behaviour when working with exceptions, make sure
+that you C<use> L<Error::Tiny> in the correct package in the correct place.
+Somehow perl doesn't report this as an error.
+
+This will not work:
+
+    use Error::Tiny;
+    package MyPackage;
+
+    try { ... };
+
 =head1 DEVELOPMENT
 
 =head2 Repository
