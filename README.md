@@ -39,6 +39,19 @@ throw an exception:
 
     Error::Tiny::Exception->throw('error');
 
+# WARNING
+
+If you start getting strange behaviour when working with exceptions, make sure
+that you `use` [Error::Tiny](http://search.cpan.org/perldoc?Error::Tiny) in the correct package in the correct place.
+Somehow perl doesn't report this as an error.
+
+This will not work:
+
+    use Error::Tiny;
+    package MyPackage;
+
+    try { ... };
+
 # DEVELOPMENT
 
 ## Repository

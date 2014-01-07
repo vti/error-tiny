@@ -4,7 +4,7 @@
       "Viacheslav Tykhanovskyi, C<vti@cpan.org>."
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.4.3, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Minilla/v0.7.5, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "unknown"
    ],
@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
    },
-   "name" : "error-tiny",
+   "name" : "Error-Tiny",
    "no_index" : {
       "directory" : [
          "t",
@@ -21,7 +21,8 @@
          "share",
          "eg",
          "examples",
-         "author"
+         "author",
+         "builder"
       ]
    },
    "prereqs" : {
@@ -37,7 +38,7 @@
             "Test::CPAN::Meta" : "0",
             "Test::MinimumVersion" : "0.10108",
             "Test::Pod" : "1.41",
-            "Test::Spellunker" : "v0.2.2"
+            "Test::Spellunker" : "v0.2.7"
          }
       },
       "runtime" : {
@@ -65,7 +66,7 @@
          "web" : "https://github.com/vti/error-tiny"
       }
    },
-   "version" : "0.02",
+   "version" : "0.03",
    "x_contributors" : [
       "vti <viacheslav.t@gmail.com>"
    ]
